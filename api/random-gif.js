@@ -4,8 +4,13 @@ export default async function handler(req, res) {
 			"https://api.waifu.pics/sfw/waifu",
 			"https://api.waifu.pics/sfw/smile",
 			"https://api.waifu.pics/sfw/wave",
+			"https://api.waifu.pics/sfw/wink",
+			"https://api.waifu.pics/sfw/dance",
 			"https://api.catboys.com/img",
-			"https://nekos.best/api/v2/nekos",
+			"https://nekos.best/api/v2/waifu",
+			"https://nekos.best/api/v2/smile",
+			"https://nekos.best/api/v2/wave",
+			"https://nekos.best/api/v2/dance",
 		];
 		const selectedSource = sources[Math.floor(Math.random() * sources.length)];
 		const response = await fetch(selectedSource);
