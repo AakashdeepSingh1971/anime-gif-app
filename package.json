@@ -1,0 +1,10 @@
+{
+    "name": "anime-gif-app",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "script": {
+        "start": "vercel dev"
+    },
+    "dependencies": {}
+}

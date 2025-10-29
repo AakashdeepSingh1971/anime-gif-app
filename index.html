@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime GIF Viewer ✨</title>
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        padding-top: 50px;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      img {
+        max-width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        transition: all 0.5s ease;
+      }
+      img:hover {
+        transform: scale(1.05);
+      }
+      p {
+        margin-top: 15px;
+        color: #ccc;
+        font-size: 0.9rem;
+      }
+      button {
+        margin-top: 20px;
+        background: #ff6ad5;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      button:hover {
+        background: #ff89ef;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🌸 Random Anime GIF 🌸</h1>
+    <img id="animeGif" src="/api/random-gif" alt="Anime GIF" />
+    <p>Auto-refreshes every 30 seconds — or click the button below 🌟</p>
+    <button id="refreshBtn">🔄 Get New GIF</button>
+
+    <script>
+      const img = document.getElementById("animeGif");
+      const refreshBtn = document.getElementById("refreshBtn");
+
+      function loadNewGif() {
+        img.src = `/api/random-gif?t=${Date.now()}`;
+      }
+
+      refreshBtn.addEventListener("click", loadNewGif);
+
+      // Auto refresh every 30 seconds
+      setInterval(loadNewGif, 30000);
+    </script>
+  </body>
+</html>
