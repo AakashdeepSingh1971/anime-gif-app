@@ -21,10 +21,13 @@ export default async function handler(req, res) {
 			(data.result && data.result[0]?.url) ||
 			data.image ||
 			"https://media.tenor.com/AlUkiGkR2j8AAAAC/anime-hello.gif";
-
+   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
 		res.writeHead(302, { Location: gifUrl });
 		res.end();
 	} catch (error) {
+		res.setHeader("Cache-Control", "no-store");
 		console.error("Error fetching anime gif:", error);
 		res.writeHead(302, {
 			Location: "https://media.tenor.com/AlUkiGkR2j8AAAAC/anime-hello.gif",
